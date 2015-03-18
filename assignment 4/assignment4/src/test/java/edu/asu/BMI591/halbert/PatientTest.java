@@ -10,7 +10,7 @@ import org.hl7.fhir.model.*;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import java.text.SimpleDateFormat;
-
+import java.util.Date;
 /**
  * Unit test for Patient (2.2.1)
  */
@@ -95,7 +95,12 @@ public class PatientTest {
         //
         //deceasedDate
         //
-            MyPatient.setDeceasedDateTime(dateTime.setValue(new Date(sdf.parse("01/01/2006 01:01"))));
+            
+            DateTime dt2 = new DateTime();
+            SimpleDateFormat sdf2 = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+            Date deceasedDate = sdf2.parse("01/01/2011 01:01");
+            dt2.setValue(deceasedDate);
+            MyPatient.setDeceasedDateTime(dt2);
 
         //
         //multipleBirthBoolean
