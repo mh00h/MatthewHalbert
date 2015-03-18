@@ -2,13 +2,14 @@ package org.hl7.fhir.model;
 //package edu.asu.BMI591.halbert;
 
 //import org.hl7.fhir.model.*;
-import org.hl7.fhir.model.impl.*;
+import org.hl7.fhir.model.*;
 
-//import org.hl7.fhir.model.impl.StringImpl;
-//import org.hl7.fhir.model.impl.CodingImpl;
+//import org.hl7.fhir.model.impl.String;
+//import org.hl7.fhir.model.impl.Coding;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import java.text.SimpleDateFormat;
 
 /**
  * Unit test for Patient (2.2.1)
@@ -19,87 +20,96 @@ public class PatientTest {
     //@Test
     public void PatientGettersShouldEqualSettersValues (){
         //Generate new FHIR element, the basis for all other elements
-        Patient MyPatient = new PatientImpl();
+        Patient MyPatient = new Patient();
         //
         //specify patient's gender
         //
             //gender requires a CodableConcept to be passed to it. So first...
             //create male and m strings for coding obect
-            String male = new StringImpl();
+            
+            String male = new String();
             male.setValue("MALE");
 
-            String m = new StringImpl();
+            Code m = new Code();
             m.setValue("M");
             //create a Coding object, which will contain the gender concept
-            Coding co_gender = new CodingImpl()
-                //add codes to the co
-                //how do these work exactly?
-                .withDisplay(male)
-                .withCode(m)
-            ;
             //create a CodeableConcept entry (male, female) that can be attached to Coding
-            CodeableConcept cc_gender = new CodeableConceptImpl();
-            cc_gender.getCodings().add(co_gender);
+            CodeableConcept cc = new CodeableConcept();
+            Coding co = new Coding();
+            co.setDisplay(male);
+            co.setCode(m);
+            cc.getCodings().add(co);
             //add gender attribute to MyPatient
-            MyPatient.setGender(cc_gender);
+            MyPatient.setGender(cc);
 
         //
         //set patient's id number
         //
             //create an identifier that we can pass into MyPatient
             //why do we have to go the round about way of inputting string like this?
-            Identifier patientIdentifier = new IdentifierImpl();
-            String patientID = new StringImpl();
+            Identifier patientIdentifier = new Identifier();
+            String patientID = new String();
             patientID.setValue("someIDvalue");
             patientIdentifier.setValue(patientID);
             //save identifier to MyPatient
-            MyPatient.getIdentifier().add(patientIdentifier);
+            MyPatient.getIdentifiers().add(patientIdentifier);
 
         //
         //set patient's name
         //
             //names follow the same pattern as identifiers
-            //set HumanName: make HumanNameImpl
-            HumanName patientHumanName = new HumanNameImpl();
+            //set HumanName: make HumanName
+            HumanName patientName = new HumanName();
             //create the familyname variable and append it to the HumanName
-            String patientHumanName_family = new StringImpl();
-            patientHumanName_family.setValue("Halbert");
+            String familyName = new String();
+            familyName.setValue("Halbert");
 
-            patientHumanName.getFamily().add(patientHumanName_family);
+            patientName.setText(familyName);
+            patientName.getFamilies().add(familyName);
             //create the given name variable and append it to HumanName
-            String patientHumanName_given = new StringImpl();
+            String patientHumanName_given = new String();
             patientHumanName_given.setValue("Halbert");
 
-            patientHumanName.getGiven().add(patientHumanName_given);
+            patientName.getGivens().add(patientHumanName_given);
             //save HumanName to MyPatient
-            MyPatient.getName().add(patientHumanName);
+            MyPatient.getNames().add(patientName);
 
         //
         //set birthday
         //
-            MyPatient.setBirthDate(dateTime.setValue(new DateImpl(sdf.parse("01/01/2001 01:01"))));
+            DateTime dt = new DateTime();
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+            Date birthDate = sdf.parse("01/01/2001 01:01");
+            dt.setValue(birthDate);
 
-        //
-        //deceased
-        //
-            MyPatient.setDeceasedBoolean(new BooleanImpl().withValue(true));
+            MyPatient.setBirthDate(dt);
+
 
         //
         //deceasedBoolean
         //
-            MyPatient.sedeceasedDateTime(dateTime.setValue(new DateImpl(sdf.parse("01/01/2006 01:01"))));
+            Boolean deceased = new Boolean();
+            deceased.setValue(true);
+            MyPatient.setDeceasedBoolean(deceased);
+
+        //
+        //deceasedDate
+        //
+            MyPatient.setDeceasedDateTime(dateTime.setValue(new Date(sdf.parse("01/01/2006 01:01"))));
 
         //
         //multipleBirthBoolean
         //
-            MyPatient.multipleBirthBoolean(new BooleanImpl().withValue(false));
+            Boolean mb = new Boolean();
+            mb.setValue(true);
+            MyPatient.setMultipleBirthBoolean(mb);
 
 
 
 
 
 
-        assertEquals("Patient id's must be the same", MyPatient.getIdentifier().get(0).getValue().getValue(), "someIDvalue");
+        assertEquals("Patient id's must be the same", MyPatient.getIdentifiers().get(0).getValue().getValue(), "someIDvalue");
     }
 
     public void XmlRoundRobin (){
