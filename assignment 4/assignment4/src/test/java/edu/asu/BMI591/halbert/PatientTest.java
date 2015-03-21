@@ -9,8 +9,24 @@ import org.hl7.fhir.model.*;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertArrayEquals;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 /**
  * Unit test for Patient (2.2.1)
  */
@@ -18,7 +34,7 @@ import java.util.Date;
 public class PatientTest {
 
     //@Test
-    public void PatientGettersShouldEqualSettersValues (){
+    public void PatientGettersShouldEqualSettersValues () throws Exception{
         //Generate new FHIR element, the basis for all other elements
         Patient MyPatient = new Patient();
         //
@@ -68,7 +84,7 @@ public class PatientTest {
             patientName.getFamilies().add(familyName);
             //create the given name variable and append it to HumanName
             String patientHumanName_given = new String();
-            patientHumanName_given.setValue("Halbert");
+            patientHumanName_given.setValue("Matthew");
 
             patientName.getGivens().add(patientHumanName_given);
             //save HumanName to MyPatient
@@ -115,15 +131,64 @@ public class PatientTest {
 
 
         assertEquals("Patient id's must be the same", MyPatient.getIdentifiers().get(0).getValue().getValue(), "someIDvalue");
+        assertEquals("Patient gender must be the same", MyPatient.getGender(), cc);
+        assertEquals(MyPatient.getNames().get(0).getGivens().get(0).getValue(),"Matthew");
+        assertEquals(MyPatient.getNames().get(0).getFamilies().get(0).getValue(),"Halbert");
+        assertEquals("Patient birthdate must be the same", MyPatient.getBirthDate().getValue(),birthDate);
+        assertEquals("Patient deceased date must be the same", MyPatient.getDeceasedDateTime().getValue(),deceasedDate);
+        assertEquals("Patient deceased must be the same", MyPatient.getDeceasedBoolean(),deceased);
+
     }
 
-    public void XmlRoundRobin (){
+    //@Test
+    public void XmlRoundRobin () throws Exception{
         //
         JAXBContext c = JAXBContext.newInstance( Patient.class.getPackage().getName() );
         Unmarshaller um = c.createUnmarshaller();
         
         InputStream is = new FileInputStream(new File("src/main/resources/patient-example.xml"));
-        Patient p = (Patient) um.unmarshal( is );
+        Patient MyPatient = (Patient) um.unmarshal( is );
+        File fileOut = new File("src/main/resources/sample-data/patient-example2.xml");
+        if(!fileOut.exists())
+            fileOut.createNewFile();
+        OutputStream os = new FileOutputStream(fileOut, false);
+        Marshaller m = c.createMarshaller();
+        m.marshal( MyPatient, os );
+        
+        is = new FileInputStream(fileOut);
+        Patient MyPatient2 = (Patient) um.unmarshal( is );
+
+        assertEquals(MyPatient.getManagingOrganization().getReference().getValue(),"Organization/1");
+        assertEquals(MyPatient.getBirthDate().getValue().toString(),"Sat Oct 21 16:20:00 MST 2000");
+        assertEquals(MyPatient.getDeceasedBoolean().isValue(),false);
+        assertEquals(MyPatient.getGender().getCodings().get(0).getSystem().getValue(),"http://hl7.org/fhir/v3/AdministrativeGender");
+        assertEquals(MyPatient.getGender().getCodings().get(0).getCode().getValue(),"M");
+        assertEquals(MyPatient.getGender().getCodings().get(0).getDisplay().getValue(),"Male");
+        assertEquals(MyPatient.getNames().get(0).getGivens().get(0).getValue(),"Peter");
+        assertEquals(MyPatient.getNames().get(0).getGivens().get(1).getValue(),"James");
+        assertEquals(MyPatient.getNames().get(0).getFamilies().get(0).getValue(),"Chalmers");
+        assertEquals(MyPatient.getIdentifiers().get(0).getLabel().getValue(),"MRN");
+        assertEquals(MyPatient.getIdentifiers().get(0).getValue().getValue(),"12345");
+        assertEquals(MyPatient.getTelecoms().get(0).getUse().getValue().toString(),"HOME");
+        assertEquals(MyPatient.getTelecoms().get(1).getSystem().getValue().toString(),"PHONE");
+        assertEquals(MyPatient.getTelecoms().get(1).getValue().getValue(),"(03) 5555 6473");
+        assertEquals(MyPatient.getTelecoms().get(1).getUse().getValue().toString(),"WORK");
+
+        assertEquals(MyPatient.getManagingOrganization().getReference().getValue(),MyPatient2.getManagingOrganization().getReference().getValue());
+        assertEquals(MyPatient.getBirthDate().getValue().toString(),MyPatient.getBirthDate().getValue().toString());
+        assertEquals(MyPatient.getDeceasedBoolean().isValue(),MyPatient.getDeceasedBoolean().isValue());
+        assertEquals(MyPatient.getGender().getCodings().get(0).getSystem().getValue(),MyPatient.getGender().getCodings().get(0).getSystem().getValue());
+        assertEquals(MyPatient.getGender().getCodings().get(0).getCode().getValue(),MyPatient.getGender().getCodings().get(0).getCode().getValue());
+        assertEquals(MyPatient.getGender().getCodings().get(0).getDisplay().getValue(),MyPatient.getGender().getCodings().get(0).getDisplay().getValue());
+        assertEquals(MyPatient.getNames().get(0).getGivens().get(0).getValue(),MyPatient.getNames().get(0).getGivens().get(0).getValue());
+        assertEquals(MyPatient.getNames().get(0).getGivens().get(1).getValue(),MyPatient.getNames().get(0).getGivens().get(1).getValue());
+        assertEquals(MyPatient.getNames().get(0).getFamilies().get(0).getValue(),MyPatient.getNames().get(0).getFamilies().get(0).getValue());
+        assertEquals(MyPatient.getIdentifiers().get(0).getLabel().getValue(),MyPatient.getIdentifiers().get(0).getLabel().getValue());
+        assertEquals(MyPatient.getIdentifiers().get(0).getValue().getValue(),MyPatient.getIdentifiers().get(0).getValue().getValue());
+        assertEquals(MyPatient.getTelecoms().get(0).getUse().getValue().toString(),MyPatient.getTelecoms().get(0).getUse().getValue().toString());
+        assertEquals(MyPatient.getTelecoms().get(1).getSystem().getValue().toString(),MyPatient.getTelecoms().get(1).getSystem().getValue().toString());
+        assertEquals(MyPatient.getTelecoms().get(1).getValue().getValue(),MyPatient.getTelecoms().get(1).getValue().getValue());
+        assertEquals(MyPatient.getTelecoms().get(1).getUse().getValue().toString(),MyPatient.getTelecoms().get(1).getUse().getValue().toString());
     }
 }
 
