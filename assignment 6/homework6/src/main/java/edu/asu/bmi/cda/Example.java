@@ -1,5 +1,4 @@
 package edu.asu.bmi.cda;
-
 /**
  * Homework 6
  *
@@ -38,7 +37,5 @@ public class Example
         //save ontology
         df.saveOntology();
 
-        ReasonerHelper helper = new ReasonerHelper();
-        helper.makeInferences(ontology);
     }
 }

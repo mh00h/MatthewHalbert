@@ -83,5 +83,8 @@ public class Ontology
         manager.addAxiom( ontology, factory.getOWLDeclarationAxiom( ind ) );
     }
 
+    public static OWLOntology getPopulatedOntology(OWLOntology ontology) {
+        return ontology;
+    }
 }
 
