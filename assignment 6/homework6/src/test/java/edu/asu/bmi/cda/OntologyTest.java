@@ -1,7 +1,7 @@
 package edu.asu.bmi.cda;
 
 import org.junit.Test;
-import org.junit.Assert.assertFalse;
+import org.junit.Assert.assertTrue;
 
 /**
  * Unit test for simple App.
@@ -15,7 +15,7 @@ public class OntologyTest {
         Ontology df = new Ontology();
         df.getPopulatedOnt();
 
-        assertFalse(db.checkRelationship( BMI591+"Antibacterial floor mat", BMI591+"subTypeOf",BMI591+"Floor mat"));
+        assertTrue(db.checkRelationship( BMI591+"Antibacterial floor mat", BMI591+"subTypeOf",BMI591+"Floor mat"));
         ReasonerHelper reason = new ReasonerHelper();
         reason.makeInferences( df.getPopulatedOnt());
 
