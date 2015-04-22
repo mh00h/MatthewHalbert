@@ -34,7 +34,6 @@ public class Ontology
     OWLOntologyManager manager;
     OWLDataFactory factory;
 
-    //why is this named the way it is?
     public OWLOntology getOntology ( ) throws Exception {
         manager = OWLManager.createOWLOntologyManager();
         ontology = manager.loadOntologyFromOntologyDocument(
@@ -86,5 +85,11 @@ public class Ontology
     public static OWLOntology getPopulatedOntology(OWLOntology ontology) {
         return ontology;
     }
+
+	public boolean checkRelationship(String string, String string2,
+			String string3) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
 

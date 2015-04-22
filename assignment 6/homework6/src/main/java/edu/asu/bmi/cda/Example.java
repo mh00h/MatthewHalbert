@@ -37,5 +37,7 @@ public class Example
         //save ontology
         df.saveOntology();
 
+        ReasonerHelper reason = new ReasonerHelper();
+        reason.makeInferences( df.getPopulatedOnt());
     }
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="tomcat-maven-archetype/tomcat-maven-archetype-api-impl/src/main/java"/>
+	<classpathentry kind="src" path="tomcat-maven-archetype/tomcat-maven-archetype-api-impl/src/test/java"/>
+	<classpathentry kind="src" path="tomcat-maven-archetype/tomcat-maven-archetype-api/src/main/java"/>
+	<classpathentry kind="src" path="tomcat-maven-archetype/tomcat-maven-archetype-webapp-it/src/test/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
