@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="org.apache.tomcat.maven.webapp.test.SimpleTest" time="3.8" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="org.apache.tomcat.maven.webapp.test.SimpleTest" time="4.795" errors="0" skipped="0">
   <properties>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="catalina.base" value="/ssdhome/7/tomcat-maven-archetype/tomcat-maven-archetype-webapp-it/target/tomcat"/>
+    <property name="catalina.base" value="/home/matthew/Documents/School/2014-2016 ASU MS Bioinformatics/2015 Spring/BMI 591 Clinical Application Development/591 personal git/MatthewHalbert/assignment 7/tomcat-maven-archetype/tomcat-maven-archetype-webapp-it/target/tomcat"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="catalina.useNaming" value="true"/>
     <property name="os.name" value="Linux"/>
     <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-jdk/jre/lib/resources.jar:/usr/lib/jvm/java-8-jdk/jre/lib/rt.jar:/usr/lib/jvm/java-8-jdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-jdk/jre/lib/jsse.jar:/usr/lib/jvm/java-8-jdk/jre/lib/jce.jar:/usr/lib/jvm/java-8-jdk/jre/lib/charsets.jar:/usr/lib/jvm/java-8-jdk/jre/lib/jfr.jar:/usr/lib/jvm/java-8-jdk/jre/classes"/>
-    <property name="java.util.logging.config.file" value="/ssdhome/7/tomcat-maven-archetype/tomcat-maven-archetype-webapp-it/target/tomcat/conf/logging.properties"/>
+    <property name="java.util.logging.config.file" value="/home/matthew/Documents/School/2014-2016 ASU MS Bioinformatics/2015 Spring/BMI 591 Clinical Application Development/591 personal git/MatthewHalbert/assignment 7/tomcat-maven-archetype/tomcat-maven-archetype-webapp-it/target/tomcat/conf/logging.properties"/>
     <property name="sun.desktop" value="gnome"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.runtime.version" value="1.8.0_45-b14"/>
@@ -36,7 +36,7 @@
     <property name="securerandom.source" value="file:/dev/./urandom"/>
     <property name="java.home" value="/usr/lib/jvm/java-8-jdk/jre"/>
     <property name="java.vm.info" value="mixed mode"/>
-    <property name="os.version" value="3.19.3-3-ARCH"/>
+    <property name="os.version" value="4.0.1-1-ARCH"/>
     <property name="sun.font.fontmanager" value="sun.awt.X11FontManager"/>
     <property name="path.separator" value=":"/>
     <property name="java.vm.version" value="25.45-b02"/>
@@ -60,17 +60,17 @@
     <property name="java.class.path" value="/opt/maven/boot/plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="java.vm.specification.version" value="1.8"/>
-    <property name="catalina.home" value="/ssdhome/7/tomcat-maven-archetype/tomcat-maven-archetype-webapp-it/target/tomcat"/>
+    <property name="catalina.home" value="/home/matthew/Documents/School/2014-2016 ASU MS Bioinformatics/2015 Spring/BMI 591 Clinical Application Development/591 personal git/MatthewHalbert/assignment 7/tomcat-maven-archetype/tomcat-maven-archetype-webapp-it/target/tomcat"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
-    <property name="maven.multiModuleProjectDirectory" value="/ssdhome/7/tomcat-maven-archetype"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/matthew/Documents/School/2014-2016 ASU MS Bioinformatics/2015 Spring/BMI 591 Clinical Application Development/591 personal git/MatthewHalbert/assignment 7/tomcat-maven-archetype"/>
     <property name="server.loader" value=""/>
     <property name="os.arch" value="amd64"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-jdk/jre/lib/ext:/usr/java/packages/lib/ext"/>
-    <property name="user.dir" value="/ssdhome/7/tomcat-maven-archetype"/>
+    <property name="user.dir" value="/home/matthew/Documents/School/2014-2016 ASU MS Bioinformatics/2015 Spring/BMI 591 Clinical Application Development/591 personal git/MatthewHalbert/assignment 7/tomcat-maven-archetype"/>
     <property name="line.separator" value="
 "/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
@@ -78,5 +78,5 @@
     <property name="tomcat.maven.http.port" value="9898"/>
     <property name="java.specification.version" value="1.8"/>
   </properties>
-  <testcase classname="org.apache.tomcat.maven.webapp.test.SimpleTest" name="testSimple" time="3.8"/>
+  <testcase classname="org.apache.tomcat.maven.webapp.test.SimpleTest" name="testSimple" time="4.795"/>
 </testsuite>

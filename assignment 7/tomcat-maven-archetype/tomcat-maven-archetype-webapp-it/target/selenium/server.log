@@ -1,8 +1,8 @@
-18:51:01,195 INFO  [org.openqa.selenium.server.SeleniumServer] Java: Oracle Corporation 25.45-b02
-18:51:01,196 INFO  [org.openqa.selenium.server.SeleniumServer] OS: Linux 3.19.3-3-ARCH amd64
-18:51:01,211 INFO  [org.openqa.selenium.server.SeleniumServer] v2.37.0, with Core v2.37.0. Built from revision a7c61cbd68657e133ae96672cf995890bad2ee42
-18:51:01.303 INFO - Default driver org.openqa.selenium.ie.InternetExplorerDriver registration is skipped: registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match with current platform: LINUX
-18:51:01.305 INFO - Unable to register driver with className com.opera.core.systems.OperaDriver - not be able to create due com.opera.core.systems.OperaDriver
+18:39:49,936 INFO  [org.openqa.selenium.server.SeleniumServer] Java: Oracle Corporation 25.45-b02
+18:39:49,940 INFO  [org.openqa.selenium.server.SeleniumServer] OS: Linux 4.0.1-1-ARCH amd64
+18:39:50,006 INFO  [org.openqa.selenium.server.SeleniumServer] v2.37.0, with Core v2.37.0. Built from revision a7c61cbd68657e133ae96672cf995890bad2ee42
+18:39:50.167 INFO - Default driver org.openqa.selenium.ie.InternetExplorerDriver registration is skipped: registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match with current platform: LINUX
+18:39:50.170 INFO - Unable to register driver with className com.opera.core.systems.OperaDriver - not be able to create due com.opera.core.systems.OperaDriver
 java.lang.ClassNotFoundException: com.opera.core.systems.OperaDriver
 	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -18,7 +18,7 @@ java.lang.ClassNotFoundException: com.opera.core.systems.OperaDriver
 	at org.openqa.selenium.server.SeleniumServer.createJettyServer(SeleniumServer.java:322)
 	at org.openqa.selenium.server.SeleniumServer.<init>(SeleniumServer.java:277)
 	at org.openqa.selenium.server.SeleniumServer.main(SeleniumServer.java:244)
-18:51:01.321 WARN - Unable to register driver with className org.openqa.selenium.htmlunit.HtmlUnitDriver - dependency missing due org/openqa/selenium/HasInputDevices
+18:39:50.252 WARN - Unable to register driver with className org.openqa.selenium.htmlunit.HtmlUnitDriver - dependency missing due org/openqa/selenium/HasInputDevices
 java.lang.NoClassDefFoundError: org/openqa/selenium/HasInputDevices
 	at java.lang.ClassLoader.defineClass1(Native Method)
 	at java.lang.ClassLoader.defineClass(ClassLoader.java:760)
@@ -45,11 +45,11 @@ java.lang.NoClassDefFoundError: org/openqa/selenium/HasInputDevices
 Caused by: java.lang.ClassNotFoundException: org.openqa.selenium.HasInputDevices
 	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
-	at sun.misc.Launcher$AppClassLoader.lo18:51:01.322 INFO - Default driver org.openqa.selenium.iphone.IPhoneDriver registration is skipped: registration capabilities CaadClass(Launcher.java:331)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
 	... 22 more
-pabilities [{browserName=iPad, version=, platform=MAC}] does not match with current platform: LINUX
-18:51:01.322 INFO - Unable to register driver with className org.openqa.selenium.phantomjs.PhantomJSDriver - not be able to create due org.openqa.selenium.phantomjs.PhantomJSDriver
+18:39:50.254 INFO - Default driver org.openqa.selenium.iphone.IPhoneDriver registration is skipped: registration capabilities Capabilities [{browserName=iPad, version=, platform=MAC}] does not match with current platform: LINUX
+18:39:50.254 INFO - Unable to register driver with className org.openqa.selenium.phantomjs.PhantomJSDriver - not be able to create due org.openqa.selenium.phantomjs.PhantomJSDriver
 java.lang.ClassNotFoundException: org.openqa.selenium.phantomjs.PhantomJSDriver
 	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -65,8 +65,8 @@ java.lang.ClassNotFoundException: org.openqa.selenium.phantomjs.PhantomJSDriver
 	at org.openqa.selenium.server.SeleniumServer.createJettyServer(SeleniumServer.java:322)
 	at org.openqa.selenium.server.SeleniumServer.<init>(SeleniumServer.java:277)
 	at org.openqa.selenium.server.SeleniumServer.main(SeleniumServer.java:244)
-18:51:01.323 INFO - Default driver org.openqa.selenium.iphone.IPhoneDriver registration is skipped: registration capabilities Capabilities [{browserName=iPhone, version=, platform=MAC}] does not match with current platform: LINUX
-18:51:01.328 WARN - Unable to register driver with className org.openqa.selenium.firefox.FirefoxDriver - dependency missing due org/openqa/selenium/remote/RenderedRemoteWebElement
+18:39:50.255 INFO - Default driver org.openqa.selenium.iphone.IPhoneDriver registration is skipped: registration capabilities Capabilities [{browserName=iPhone, version=, platform=MAC}] does not match with current platform: LINUX
+18:39:50.288 WARN - Unable to register driver with className org.openqa.selenium.firefox.FirefoxDriver - dependency missing due org/openqa/selenium/remote/RenderedRemoteWebElement
 java.lang.NoClassDefFoundError: org/openqa/selenium/remote/RenderedRemoteWebElement
 	at java.lang.ClassLoader.defineClass1(Native Method)
 	at java.lang.ClassLoader.defineClass(ClassLoader.java:760)
@@ -96,13 +96,13 @@ Caused by: java.lang.ClassNotFoundException: org.openqa.selenium.remote.Rendered
 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
 	... 22 more
-18:51:01,379 INFO  [org.openqa.selenium.server.SeleniumServer] RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
-18:51:01,380 INFO  [org.openqa.jetty.http.HttpServer] Version Jetty/5.1.x
-18:51:01,382 INFO  [org.openqa.jetty.util.Container] Started HttpContext[/selenium-server,/selenium-server]
-18:51:01,412 INFO  [org.openqa.jetty.util.Container] Started org.openqa.jetty.jetty.servlet.ServletHandler@32e6e9c3
-18:51:01,412 INFO  [org.openqa.jetty.util.Container] Started HttpContext[/wd,/wd]
-18:51:01,412 INFO  [org.openqa.jetty.util.Container] Started HttpContext[/selenium-server/driver,/selenium-server/driver]
-18:51:01,412 INFO  [org.openqa.jetty.util.Container] Started HttpContext[/,/]
-18:51:01,422 INFO  [org.openqa.jetty.http.SocketListener] Started SocketListener on 0.0.0.0:4444
-18:51:01,422 INFO  [org.openqa.jetty.util.Container] Started org.openqa.jetty.jetty.Server@7960847b
-18:51:02.441 INFO - Checking Resource aliases
+18:39:50,375 INFO  [org.openqa.selenium.server.SeleniumServer] RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+18:39:50,377 INFO  [org.openqa.jetty.http.HttpServer] Version Jetty/5.1.x
+18:39:50,379 INFO  [org.openqa.jetty.util.Container] Started HttpContext[/selenium-server,/selenium-server]
+18:39:50,416 INFO  [org.openqa.jetty.util.Container] Started org.openqa.jetty.jetty.servlet.ServletHandler@32e6e9c3
+18:39:50,416 INFO  [org.openqa.jetty.util.Container] Started HttpContext[/wd,/wd]
+18:39:50,416 INFO  [org.openqa.jetty.util.Container] Started HttpContext[/selenium-server/driver,/selenium-server/driver]
+18:39:50,416 INFO  [org.openqa.jetty.util.Container] Started HttpContext[/,/]
+18:39:50,423 INFO  [org.openqa.jetty.http.SocketListener] Started SocketListener on 0.0.0.0:4444
+18:39:50,423 INFO  [org.openqa.jetty.util.Container] Started org.openqa.jetty.jetty.Server@7960847b
+18:39:50.637 INFO - Checking Resource aliases

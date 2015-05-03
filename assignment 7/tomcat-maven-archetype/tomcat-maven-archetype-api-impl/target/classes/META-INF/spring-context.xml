@@ -42,6 +42,7 @@
 
     <jaxrs:serviceBeans>
       <ref bean="helloService#default"/>
+      <ref bean="fhirService#default" />
     </jaxrs:serviceBeans>
 
    </jaxrs:server>

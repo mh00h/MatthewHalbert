@@ -90,6 +90,22 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>edu.asu.bmi.cad</groupId>
+        <artifactId>homework7-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>edu.asu.bmi.cad</groupId>
+        <artifactId>homework7-api-impl</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>edu.asu.bmi.cad</groupId>
+        <artifactId>homework7-webapp</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
         <groupId>org.apache.tomcat.maven</groupId>
         <artifactId>tomcat-maven-archetype-api</artifactId>
         <version>${project.version}</version>
@@ -186,11 +202,11 @@
         <version>4.10</version>
         <scope>test</scope>
       </dependency>
-<dependency>
-	<groupId>me.fhir</groupId>
-	<artifactId>fhir-dstu1</artifactId>
-	<version>0.0.82.2943</version>
-</dependency>
+	  <dependency>
+            <groupId>edu.asu.BMI591.halbert</groupId>
+              <artifactId>assignment4</artifactId>
+                  <version>1.0</version>
+      </dependency>
 
     </dependencies>
   </dependencyManagement>

@@ -1,3 +1,10 @@
+package org.apache.tomcat.maven.api.impl;
+
+import org.apache.tomcat.maven.api.FHIRService;
+import org.springframework.stereotype.Service;
+
+import edu.asu.BMI591.halbert.Patient;
+
 @Service( "fhirService#default" )
 public class DefaultFHIRService
 implements FHIRService
